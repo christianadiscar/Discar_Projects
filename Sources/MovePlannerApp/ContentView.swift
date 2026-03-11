@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var store: ProjectStore
+    @Bindable var store: ProjectStore
     @State private var selectedProjectID: UUID?
     @State private var draftFolderName = ""
 
@@ -21,6 +22,7 @@ struct ContentView: View {
                         }
                         .contextMenu {
                             ProjectContextMenu(project: project)
+                            ProjectContextMenu(project: project, store: store)
                         }
                     }
                     .onDelete(perform: store.deleteProject)
@@ -80,6 +82,9 @@ struct ContentView: View {
                     Text("Select a project")
                         .foregroundStyle(.secondary)
                 }
+                ProjectDetailView(project: project, store: store)
+            } else {
+                ContentUnavailableView("Select a project", systemImage: "shippingbox")
             }
         }
     }
@@ -88,6 +93,7 @@ struct ContentView: View {
 private struct ProjectContextMenu: View {
     let project: MoveProject
     @EnvironmentObject private var store: ProjectStore
+    @Bindable var store: ProjectStore
 
     var body: some View {
         Button("Move to Main Screen") {

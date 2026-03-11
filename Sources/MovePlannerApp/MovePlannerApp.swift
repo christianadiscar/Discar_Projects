@@ -8,6 +8,11 @@ struct MovePlannerApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+    @State private var store = ProjectStore()
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView(store: store)
         }
     }
 }
