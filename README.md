@@ -3,6 +3,7 @@
 A SwiftUI multiplatform app scaffold for:
 - macOS Ventura+ (macOS 13+)
 - iPhone iOS 17+ (Xcode 15 compatible)
+- iPhone iOS 18+
 
 ## Implemented features
 

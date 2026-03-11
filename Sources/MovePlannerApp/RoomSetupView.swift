@@ -3,6 +3,7 @@ import SwiftUI
 struct RoomSetupView: View {
     @State var project: MoveProject
     @EnvironmentObject private var store: ProjectStore
+    @Bindable var store: ProjectStore
     @State private var newRoomName = ""
     @State private var roomWidth = ""
     @State private var roomDepth = ""
