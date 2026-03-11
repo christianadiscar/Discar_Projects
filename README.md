@@ -2,6 +2,7 @@
 
 A SwiftUI multiplatform app scaffold for:
 - macOS Ventura+ (macOS 13+)
+- iPhone iOS 17+ (Xcode 15 compatible)
 - iPhone iOS 18+
 
 ## Implemented features
@@ -39,6 +40,11 @@ This scaffold includes a local heuristic timeline generator and layout optimizer
 ## Xcode 15 compatibility notes
 - Uses Swift tools 5.9 and iOS 17 / macOS 13 deployment targets.
 - Uses `ObservableObject` + `@StateObject` + `@EnvironmentObject` (not Swift Observation macros).
+
+## macOS 13.7.8 / Xcode 15 readiness
+- Deployment targets are `macOS 13` and `iOS 17` in `Package.swift`.
+- App state uses `ObservableObject`/`@StateObject`/`@EnvironmentObject` (compatible with Xcode 15).
+- Project notes editor uses `TextEditor` (instead of newer `TextField(axis:)` variants) for broad macOS 13 compatibility.
 
 ## If you saw macOS 14-only errors
 If you previously got errors about `@Bindable`, `@Observable`, or `ContentUnavailableView` requiring newer OS versions, this project now uses macOS 13-compatible patterns:

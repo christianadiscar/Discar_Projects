@@ -15,6 +15,13 @@ struct ProjectDetailView: View {
                 TextField("Project name", text: $project.name)
                 DatePicker("Move date", selection: $project.moveDate, displayedComponents: .date)
                 Toggle("Include Room Setup page", isOn: $project.includeRoomSetup)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Notes")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    TextEditor(text: $project.notes)
+                        .frame(minHeight: 90)
+                }
                 TextField("Notes", text: $project.notes, axis: .vertical)
             }
 
