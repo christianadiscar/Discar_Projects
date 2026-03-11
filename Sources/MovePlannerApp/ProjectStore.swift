@@ -1,4 +1,9 @@
 import Foundation
+import SwiftUI
+
+final class ProjectStore: ObservableObject {
+    @Published private(set) var projects: [MoveProject]
+    @Published private(set) var folders: [ProjectFolder]
 import Observation
 
 @Observable

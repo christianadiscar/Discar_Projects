@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProjectDetailView: View {
     @State var project: MoveProject
+    @EnvironmentObject private var store: ProjectStore
     @Bindable var store: ProjectStore
     @State private var newItemName = ""
     @State private var selectedCategory: MoveCategory = .majorBulk
@@ -66,6 +67,7 @@ struct ProjectDetailView: View {
             if project.includeRoomSetup {
                 Section("Room Setup") {
                     NavigationLink("Open Room Setup") {
+                        RoomSetupView(project: project)
                         RoomSetupView(project: project, store: store)
                     }
                 }

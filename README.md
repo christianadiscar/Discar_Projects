@@ -36,3 +36,17 @@ This scaffold includes a local heuristic timeline generator and layout optimizer
 2. Select `MovePlannerApp` executable target.
 3. Run on `My Mac` or iPhone simulator.
 
+## Xcode 15 compatibility notes
+- Uses Swift tools 5.9 and iOS 17 / macOS 13 deployment targets.
+- Uses `ObservableObject` + `@StateObject` + `@EnvironmentObject` (not Swift Observation macros).
+
+## If you saw macOS 14-only errors
+If you previously got errors about `@Bindable`, `@Observable`, or `ContentUnavailableView` requiring newer OS versions, this project now uses macOS 13-compatible patterns:
+- `ObservableObject` + `@StateObject` + `@EnvironmentObject`
+- no required `ContentView(store:)` initializer at call site
+
+If you still see stale errors in Xcode:
+1. Product → Clean Build Folder
+2. Quit Xcode
+3. Delete DerivedData
+4. Reopen and run again
