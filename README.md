@@ -37,6 +37,19 @@ This scaffold includes a local heuristic timeline generator and layout optimizer
 2. Select `MovePlannerApp` executable target.
 3. Run on `My Mac` or iPhone simulator.
 
+
+## Quick preflight before opening Xcode
+Run the local preflight to catch common Xcode 15/macOS 13 issues:
+
+```bash
+./scripts/xcode15_preflight.sh
+```
+
+This checks for:
+- duplicate/invalid `swift-tools-version` lines in `Package.swift`
+- deployment target drift from iOS 17 / macOS 13
+- accidental use of `@Bindable`/`@Observable` (macOS 14 Observation macros)
+
 ## Xcode 15 compatibility notes
 - Uses Swift tools 5.9 and iOS 17 / macOS 13 deployment targets.
 - Uses `ObservableObject` + `@StateObject` + `@EnvironmentObject` (not Swift Observation macros).
