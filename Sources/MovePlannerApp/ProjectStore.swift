@@ -4,6 +4,12 @@ import SwiftUI
 final class ProjectStore: ObservableObject {
     @Published private(set) var projects: [MoveProject]
     @Published private(set) var folders: [ProjectFolder]
+import Observation
+
+@Observable
+final class ProjectStore {
+    private(set) var projects: [MoveProject]
+    private(set) var folders: [ProjectFolder]
     private let saveURL: URL
 
     init() {
