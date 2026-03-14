@@ -3,6 +3,7 @@
 A SwiftUI multiplatform app scaffold for:
 - macOS Ventura+ (macOS 13+)
 - iPhone iOS 17+ (Xcode 15 compatible)
+- iPhone iOS 18+
 
 ## Implemented features
 
@@ -48,8 +49,6 @@ This checks for:
 - duplicate/invalid `swift-tools-version` lines in `Package.swift`
 - deployment target drift from iOS 17 / macOS 13
 - accidental use of `@Bindable`/`@Observable` (macOS 14 Observation macros)
-
-If `rg` is not installed on your Mac, the script automatically falls back to `grep`.
 
 ## Xcode 15 compatibility notes
 - Uses Swift tools 5.9 and iOS 17 / macOS 13 deployment targets.

@@ -3,6 +3,7 @@ import SwiftUI
 struct ProjectDetailView: View {
     @State var project: MoveProject
     @EnvironmentObject private var store: ProjectStore
+    @Bindable var store: ProjectStore
     @State private var newItemName = ""
     @State private var selectedCategory: MoveCategory = .majorBulk
     @State private var itemRoom = ""
@@ -21,6 +22,7 @@ struct ProjectDetailView: View {
                     TextEditor(text: $project.notes)
                         .frame(minHeight: 90)
                 }
+                TextField("Notes", text: $project.notes, axis: .vertical)
             }
 
             Section("Items to Move") {
@@ -73,6 +75,7 @@ struct ProjectDetailView: View {
                 Section("Room Setup") {
                     NavigationLink("Open Room Setup") {
                         RoomSetupView(project: project)
+                        RoomSetupView(project: project, store: store)
                     }
                 }
             }
